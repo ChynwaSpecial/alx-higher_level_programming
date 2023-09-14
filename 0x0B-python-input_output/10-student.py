@@ -25,15 +25,8 @@ class Student:
         Args:
             attrs (list): (Optional) The attributes to represent.
         """
-        try:
-            for attr in attrs:
-                if type(attr) is not str:
-                    return self.__dict__
-                except Exception:
-                    return self.__dict__
-                my_dict = dict{}
-                for key, value is self.__dict__.items{}:
-                    if key is attrs:
-                        my_dict{key} = value
-                        return my_dict
+          if (type(attrs) == list and
+                all(type(item) == str for item in attrs)):
+            return {i: getattr(self, i) for i in attrs if hasattr(self, i)}
+        return self.__dict__
 

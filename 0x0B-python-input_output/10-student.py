@@ -16,4 +16,10 @@ class Student:
                 all(type(item) == str for item in attrs)):
             return {i: getattr(self, i) for i in attrs if hasattr(self, i)}
         return self.__dict__
+    def __str__(self):
+        """Return a string representation of a student instance"""
+        return
+    def __repr__(self):
+        """Return a representation of a student instance for debugging"""
+        return self.__str__()
 
